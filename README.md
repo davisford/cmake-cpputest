@@ -11,8 +11,7 @@ Skeleton project for development in embedded C using the approach outlined in [T
 * Out Of Source Build
 
 ```sh
-$ touch build
-$ cd build 
+$ mkdir build & cd build
 $ cmake ..
 $ make
 ```
