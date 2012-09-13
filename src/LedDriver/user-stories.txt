@@ -1,0 +1,81 @@
+ebike-45: directions to poi on smart phone
+
+ebike owner get directions to poi on phone - question about whether this capability is already built into phone.  they want directions to poi somehow, and turn-by-turn nav.
+
+ebike-44: proximity alert for saved poi
+
+be notified if i'm near a saved poi.
+
+ebike-43: save / modify routes on smart phone
+
+no ui on device, must have phone?
+
+ebike-42: method for saving and being notified of POI
+
+similar to ebike-44
+
+ebike-41: poi search along my route
+
+ebike-39: OTA firmware update
+
+impossible with raspberry pi
+
+ebike-38: on demand ebike diag
+
+live or cached on device or pushed realtime to backoffice
+
+ebike-27: ebike destination broadcast
+
+prediction about what time i'll arrive
+
+ebike-28: other riders can follow my trail
+
+bike leaves breadcrumbs about where i've been so people
+can see my trail
+
+ebike-25: alert is sent when someone falls behind
+
+what is alert mechanism for telling group?
+
+ebike-24: broadcast message to riding group
+
+initialized by rider of group "hey, i'm stopping up here"
+
+ebike-23: ebike diagnostics share
+
+charge level (battery level low, etc)
+
+ebike-22: group ride low battery notification
+
+same as ebike-23, ebike-24
+
+ebike-21: locate my bike
+
+ebike-20: remote ebike status check
+
+check if my bike has moved or been started, etc.  pull vs. push notification of status; check charge level, air pressure
+
+ebike-19: ability to lend bike to friends or customers --
+
+somehow override theft deterrent.  give a pass to someone.
+
+ebike-18: theft notification
+
+put bike into theft mode.  get notified if bike is moved at all.
+
+ebike-17: same as 18
+
+ebike-16: notify back office
+
+ebike-15: theft protection mode
+
+same as ebike-19, toggle theft mode state
+
+ebike-14: dupe
+
+
+Dave's 3 use cases
+
+theft
+crash notification
+ability to track bike
