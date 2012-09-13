@@ -9,3 +9,10 @@ Skeleton project for development in embedded C using the approach outlined in [T
 * Support build platform independence
 * Provide a _good_ environment for getting started on a new project
 * Out Of Source Build
+
+```sh
+$ touch build
+$ cd build 
+$ cmake ..
+$ make
+```
