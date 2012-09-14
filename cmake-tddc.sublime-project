@@ -19,7 +19,9 @@
   {
     "sublimeclang_options":
     [
-      "-I/Users/davisford/git/cmake-tddc/include/**"
+      "-I${folder:${project_path:cmake-tddc.sublime-project}}/include/**",
+      "-I${folder:${project_path:cmake-tddc.sublime-project}}/include",
+      "-I${CPPUTEST_HOME}/include/**"
     ],
     "tab_size": 2
   }
