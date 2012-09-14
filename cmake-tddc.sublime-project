@@ -4,5 +4,23 @@
 		{
 			"path": "/Users/davisford/git/cmake-tddc"
 		}
-	]
+	],
+  "build_systems":
+  [
+    {
+      "cmd":
+      [
+        "make"
+      ],
+      "name": "Make"
+    }
+  ],
+  "settings":
+  {
+    "sublimeclang_options":
+    [
+      "-I/Users/davisford/git/cmake-tddc/include/**"
+    ],
+    "tab_size": 2
+  }
 }

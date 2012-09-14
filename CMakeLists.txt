@@ -11,12 +11,7 @@ set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 
 add_subdirectory(src)
 
-# add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
-include_directories("${PROJECT_SOURCE_DIR}"/src/)
-include_directories("include")
-include_directories("include/LedDriver")
-
+message(ENV{CPPUTEST_HOME})
 
 message("PROJECT_BINARY_DIR: ${PROJECT_BINARY_DIR}")
 message("PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")

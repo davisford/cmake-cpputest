@@ -1,5 +1,7 @@
 project (Tutorial)
 
+include_directories(${PROJECT_SOURCE_DIR}/../include/LedDriver/)
+
 # Configure a header file to pass some of the CMake settings
 # to the source code
 configure_file (
