@@ -6,11 +6,11 @@ Skeleton project for development in embedded C using the approach outlined in [T
 The demo source code used here (e.g. `LedDriver` example) was taken from the code from the book [Test Driven Development for Emedded C](http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).  There isn't very much code, but I just used it as a simple demonstration of a cross-platform build environment that promotes tdd in embedded c.
 
 **Goals**
-* Support dual targeting
-* Support cross-compiler builds
-* Support build platform independence
-* Provide a _good_ environment for getting started on a new project
-* Out Of Source Build
+* Support dual targeting...*not yet, still just targeting dev machine*
+* Support cross-compiler builds...*not yet, soon*
+* Support build platform independence...*only tested on Mac OSX; probably works fine on Linux; theoretically should work on Windows with CMake -- who knows*
+* Provide a _good_ environment for getting started on a new project...*getting there - unit test framework is integrated*
+* Out Of Source Build...*CHECK*
 
 Why?  I want a cross-platform skeleton project that allows me to quickly start building something on any machine: Linux, Windows, Mac for C or C++.  I want good test support for it.  I want to be able to cross-compile for embedded targets -- although this I will probably do with a branch.
 
