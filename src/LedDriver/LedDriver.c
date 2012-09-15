@@ -35,7 +35,7 @@ static bool IsLedOutOfBounds(int ledNumber)
 {
   if ((ledNumber < FIRST_LED) || (ledNumber > LAST_LED))
   {
-    RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
+    //RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
     return true;
   }
   return false;

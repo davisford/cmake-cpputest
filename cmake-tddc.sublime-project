@@ -1,28 +1,31 @@
 {
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make"
+			],
+			"name": "Make"
+		}
+	],
 	"folders":
 	[
 		{
-			"path": "."
+			"path": "/Users/davis/git/cmake-cpputest"
+		},
+		{
+			"path": "/Users/davis/Documents/tdd-embedded-c"
 		}
 	],
-  "build_systems":
-  [
-    {
-      "cmd":
-      [
-        "make"
-      ],
-      "name": "Make"
-    }
-  ],
-  "settings":
-  {
-    "sublimeclang_options":
-    [
-      "-I${folder:${project_path:cmake-tddc.sublime-project}}/include/**",
-      "-I${folder:${project_path:cmake-tddc.sublime-project}}/include",
-      "-I${CPPUTEST_HOME}/include/**"
-    ],
-    "tab_size": 2
-  }
+	"settings":
+	{
+		"sublimeclang_options":
+		[
+			"-I${folder:${project_path:cmake-tddc.sublime-project}}/include/**",
+			"-I${folder:${project_path:cmake-tddc.sublime-project}}/include",
+			"-I${CPPUTEST_HOME}/include/**"
+		],
+		"tab_size": 2
+	}
 }
