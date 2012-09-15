@@ -3,6 +3,8 @@ cmake-cpputest
 
 Skeleton project for development in embedded C using the approach outlined in [Test Driven Development for Emedded C](http://pragprog.com/book/jgade/test-driven-development-for-embedded-c) with testing done via [CppUTest](http://cpputest.org/) and build done using [CMake](http://cmake.org/)
 
+The demo source code used here (e.g. `LedDriver` example) was taken from the code from the book [Test Driven Development for Emedded C](http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).  There isn't very much code, but I just used it as a simple demonstration of a cross-platform build environment that promotes tdd in embedded c.
+
 **Goals**
 * Support dual targeting
 * Support cross-compiler builds
