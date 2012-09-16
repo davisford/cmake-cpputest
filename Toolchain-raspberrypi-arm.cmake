@@ -14,8 +14,8 @@ endif()
 SET (PiToolsDir arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi)
 
 # specify the cross compiler
-SET (CMAKE_C_COMPILER $ENV{PI_TOOLS_HOME}/${PiToolsDir}/arm-bcm2708hardfp-linux-gnueabi-gcc)
-SET (CMAKE_CXX_COMPILER $ENV{PI_TOOLS_HOME}/${PiToolsDir}/arm-bcm2708hardfp-linux-gnueabi-g++)
+SET (CMAKE_C_COMPILER $ENV{PI_TOOLS_HOME}/${PiToolsDir}/bin/arm-bcm2708hardfp-linux-gnueabi-gcc)
+SET (CMAKE_CXX_COMPILER $ENV{PI_TOOLS_HOME}/${PiToolsDir}/bin/arm-bcm2708hardfp-linux-gnueabi-g++)
 
 # where is the target environment
 SET (CMAKE_FIND_ROOT_PATH $ENV{PI_TOOLS_HOME}/${PiToolsDir})
