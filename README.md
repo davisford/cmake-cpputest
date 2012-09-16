@@ -75,7 +75,7 @@ Now, create an environment variable that points to the tools.  Add the following
 
 _this is my path, yours may be different_
 
-Now, edit the file `Toolchain-raspberrypi-arm.cmake` and make sure the paths are consistent with `$PI_TOOLS_HOME`.  This is the cross-compiler configuration for CMake.
+Now, edit the file `Toolchain-raspberrypi-arm.cmake` and make sure the paths are consistent with `$PI_TOOLS_HOME`.  This is the [cross-compiler configuration for CMake](http://www.cmake.org/Wiki/CMake_Cross_Compiling#The_toolchain_file).
 
 In order to build, you'll also need to cross-compile a version of CppUTest **TODO**, and you'll have to override the environment variable `$CPPUTEST_HOME` with the Arm version of the library.
 
