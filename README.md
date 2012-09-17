@@ -38,8 +38,57 @@ With homebrew: `brew install cpputest`
 
 Now, create an environment variable that points to it.  Add the following line to `.bash_profile` or similar: `export CPPUTEST_HOME=/path/to/cpputest`
 
+### Build
+```sh
+$ mkdir build && cd build
+$ cmake ..
+$ make
+```
+
+### Run Tests
+```sh
+~/git/cmake-cpputest$ cd build && ./bin/RunAllTests
+
+/Users/davis/git/cmake-cpputest/tests/LedDriver/LedDriverTest.cpp:26: error: Failure in TEST(LedDriver, FirstTest)
+  Start here
+
+.
+Errors (1 failures, 1 tests, 1 ran, 0 checks, 0 ignored, 0 filtered out, 0 ms)
+```
+
+Test fails b/c I call the `FAIL` macro - so the environment is setup ok.
+
+### Cross-Compile for Raspberry Pi
+I gave up trying to do this on the Mac.  It might be possible, but I couldn't find anything decent on how to setup Gnu compiler toolchain for the Arm/Pi hardware like there is for Linux.  So, the path I'm taking is to use Linux to cross-compile when I need to, but I can still develop and test on the Mac using tdd/mocks.  Only if I want to cross-compile for the Pi and push the binaries will I need to switch.
+
+So, this step is for Ubuntu only; I grab the pre-built toolchain for Pi:
+
+```
+$ mkdir -p ~/git/raspberrypi/ && cd ~/git/raspberrypi
+$ git clone git://github.com/raspberrypi/tools.git
+```
+
+Now, create an environment variable that points to the tools.  Add the following line to `.bashrc` or similar: `export PI_TOOLS_HOME=~/git/raspberrypi/tools`
+
+_this is my path, yours may be different_
+
+Now, edit the file `Toolchain-raspberrypi-arm.cmake` and make sure the paths are consistent with `$PI_TOOLS_HOME`.  This is the [cross-compiler configuration for CMake](http://www.cmake.org/Wiki/CMake_Cross_Compiling#The_toolchain_file).
+
+In order to build, you'll also need to [cross-compile a version of CppUTest](#cross-compile-cpputest-for-embedded-target), and you'll have to override the environment variable `$CPPUTEST_HOME` with the Arm version of the library.
+
+Build as follows (create a different build directory for the Arm stuff so we don't intermix them)
+```sh
+$ mkdir pibuild && cd pibuild
+$ cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-raspberrypi-arm.cmake ..
+```
+
+With fingers crossed, it will build ok.
+
 #### Cross-Compile CppUTest for embedded target
-This is the approach I took.  It seemed easier than messing with the cross-compiler.  This is a one-time build, since the code for CppUTest will not change often.  I wanted to setup the `Emulator` anyway with QEMU, so it kills two birds with one stone.
+Actually, instead of cross-compiling the CppUTest library, I chose to build it with the QEMU emulator.
+It seemed easier than messing with the cross-compiler.  This is a one-time build, since the code for CppUTest will not change often.  I wanted to setup the `Emulator` anyway with QEMU, so it kills two birds with one stone.
+
+You might ask why not just build the whole source - including CppUTest in QEMU or on the Pi itself, and the reason is that it is slow.  It took about 5 minutes to compile CppUTest.  I want a dev. environment that is fast and allows me to mock the hardware and dependencies.
 
 Install [QEMU](http://wiki.qemu.org/Main_Page)
 ```sh
@@ -99,55 +148,6 @@ $ sudo umount /mnt/pi
 ```
 
 Now, you can create a directory for Arm CppUTest with the header files in `/include` dir and the library in `/lib` and update the environment variable `CPPUTEST_HOME` for CMake, and it should cross-compile successfully
-
-
-### Build
-```sh
-$ mkdir build && cd build
-$ cmake ..
-$ make
-```
-
-### Run Tests
-```sh
-~/git/cmake-cpputest$ cd build && ./bin/RunAllTests
-
-/Users/davis/git/cmake-cpputest/tests/LedDriver/LedDriverTest.cpp:26: error: Failure in TEST(LedDriver, FirstTest)
-  Start here
-
-.
-Errors (1 failures, 1 tests, 1 ran, 0 checks, 0 ignored, 0 filtered out, 0 ms)
-```
-
-Test fails b/c I call the `FAIL` macro - so the environment is setup ok.
-
-### Cross-Compile for Raspberry Pi
-I gave up trying to do this on the Mac.  It might be possible, but I couldn't find anything decent on how to setup Gnu compiler toolchain for the Arm/Pi hardware like there is for Linux.  So, the path I'm taking is to use Linux to cross-compile when I need to, but I can still develop and test on the Mac using tdd/mocks.  Only if I want to cross-compile for the Pi and push the binaries will I need to switch.
-
-So, this step is for Ubuntu only; I grab the pre-built toolchain for Pi:
-
-```
-$ mkdir -p ~/git/raspberrypi/ && cd ~/git/raspberrypi
-$ git clone git://github.com/raspberrypi/tools.git
-```
-
-Now, create an environment variable that points to the tools.  Add the following line to `.bashrc` or similar: `export PI_TOOLS_HOME=~/git/raspberrypi/tools`
-
-_this is my path, yours may be different_
-
-Now, edit the file `Toolchain-raspberrypi-arm.cmake` and make sure the paths are consistent with `$PI_TOOLS_HOME`.  This is the [cross-compiler configuration for CMake](http://www.cmake.org/Wiki/CMake_Cross_Compiling#The_toolchain_file).
-
-In order to build, you'll also need to [cross-compile a version of CppUTest](#cross-compile-cpputest-for-embedded-target), and you'll have to override the environment variable `$CPPUTEST_HOME` with the Arm version of the library.
-
-Build as follows (create a different build directory for the Arm stuff so we don't intermix them)
-```sh
-$ mkdir pibuild && cd pibuild
-$ cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-raspberrypi-arm.cmake ..
-```
-
-With fingers crossed, it will build ok.
-
-
 
 
 
