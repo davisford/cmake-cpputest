@@ -6,10 +6,10 @@ Skeleton project for development in embedded C using the approach outlined in [T
 The demo source code used here (e.g. `LedDriver` example) was taken from the code from the book [Test Driven Development for Emedded C](http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).  There isn't very much code, but I just used it as a simple demonstration of a cross-platform build environment that promotes tdd in embedded c.
 
 **Goals**
-* Support dual targeting local dev machine + raspberry pi embedded target...*almost: need to cross-compile cpputest and I think it will be there*
+* Support dual targeting local dev machine + raspberry pi embedded target...*CHECK*
 * Support cross-compiler builds...*CHECK*
 * Support build platform independence...*works on Mac OS X and Linux (see below).  have not tested Windows*
-* Provide a _good_ environment for getting started on a new project...*getting there*
+* Provide a _good_ environment for getting started on a new project...*SUBJECTIVE CHECK*
 * Out Of Source Build...*CHECK*
 
 Why?  I'm going to build a [Raspberry Pi](http://raspberrypi.org) project, and compiling on the target is painful for a lot of reasons.  I'd prefer to develop, build, & test on a development machine, but still have the capability of building and running tests on the target.  This setup ought to work similarly for any target - not just the Raspberry Pi.  You can use it and modify it to suit your needs.
