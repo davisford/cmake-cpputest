@@ -24,7 +24,8 @@
 		[
 			"-I${folder:${project_path:cmake-tddc.sublime-project}}/include/**",
 			"-I${folder:${project_path:cmake-tddc.sublime-project}}/include",
-			"-I${CPPUTEST_HOME}/include/**"
+			"-I${CPPUTEST_HOME}/include/**",
+			"-I${folder:${project_path:cmake-tddc.sublime-project}}/mocks"
 		],
 		"tab_size": 2
 	}

@@ -24,16 +24,26 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
-///
-/// At runtime, put an entry in an event log
-///
-/// @param message the message you want to log
-/// @param parameter the param argument number of the function
-/// @param file the file to log to
-/// @param line the line number for stack trace
-///
-void RunTimeError(const char * message, int parameter, 
-                  const char * file, int line);
+#ifndef D_RuntimeErrorStub_H
+#define D_RuntimeErrorStub_H
 
-/// Code should use this macro instead of the function
-#define RUNTIME_ERROR(description, parameter) RuntimeError(description, parameter, __FILE__, __LINE__)
+#include "RuntimeError.h"
+
+///
+/// Allows test code to reset the stub 
+///
+void RuntimeErrorStub_Reset(void);
+
+///
+/// Retrieve the last error message passed to the stub
+/// @return the last error message passed to the stub
+///
+const char * RuntimeErrorStub_GetLastError(void);
+
+///
+/// Retrieve the position of the last parameter that caused the error
+/// @return the position of the last parameter that caused the error
+///
+int RuntimeErrorStub_GetLastParameter(void);
+
+#endif
