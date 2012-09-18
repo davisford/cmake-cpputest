@@ -49,14 +49,11 @@ $ make
 ```sh
 ~/git/cmake-cpputest$ cd build && ./bin/RunAllTests
 
-/Users/davis/git/cmake-cpputest/tests/LedDriver/LedDriverTest.cpp:26: error: Failure in TEST(LedDriver, FirstTest)
-  Start here
-
-.
-Errors (1 failures, 1 tests, 1 ran, 0 checks, 0 ignored, 0 filtered out, 0 ms)
+......!.........
+OK (16 tests, 15 ran, 20 checks, 1 ignored, 0 filtered out, 0 ms)
 ```
 
-Test fails b/c I call the `FAIL` macro - so the environment is setup ok.
+These 16 tests are for `LedDriver` which is sample code from the book.  There's even an example of using a stub via the linker (`RuntimeErrorStub.c`).
 
 ### Cross-Compile for Raspberry Pi
 I gave up trying to do this on the Mac.  It might be possible, but I couldn't find anything decent on how to setup Gnu compiler toolchain for the Arm/Pi hardware like there is for Linux.  So, the path I'm taking is to use Linux to cross-compile when I need to, but I can still develop and test on the Mac using tdd/mocks.  Only if I want to cross-compile for the Pi and push the binaries will I need to switch.
