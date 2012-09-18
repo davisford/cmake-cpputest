@@ -137,15 +137,27 @@ Disk identifier: 0x000108cb
 $ sudo mount -t ext4 -o loop,offset=$((512*122880)) ./2012-08-16-wheezy-raspbian.img /mnt/pi
 ```
 
-Now, on the host, just copy the library over:
+Now, create a directory on the host to hold the Arm library and include files.
 
 ```sh
-$ cp /mnt/pi/home/pi/git/cpputest/lib/libCppUTest.a .
+$ mkdir ~/cpputest-arm
+# Assume you git cloned the ccputest source to ~/git/cpputest
+$ cp -R ~/git/cpputest/include ~/cpputest-arm
+$ mkdir ~/cpputest-arm/lib
+$ cp /mnt/pi/home/pi/git/cpputest/lib/libCppUTest.a ~/cpputest-arm/lib
 $ sudo umount /mnt/pi
 ```
 
-Now, you can create a directory for Arm CppUTest with the header files in `/include` dir and the library in `/lib` and update the environment variable `CPPUTEST_HOME` for CMake, and it should cross-compile successfully
+Now, if you want to build for the Pi target, including the test binary, you update `CPPUTEST_HOME` and use the CMake toolchain file for the Pi.
 
+```sh
+$ export CPPUTEST_HOME=~/cpputest-arm
+$ cd ~/git/cmake-cpputest/pibuild 
+$ cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-raspberrypi-arm.cmake ..
+$ make
+```
+
+Outputs in `bin` and `lib` directories.  You can re-mount the Pi filesystem, copy them over, restart emulator and validate that they work ok (they do for me).
 
 
 
