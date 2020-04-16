@@ -13,7 +13,7 @@ include_directories($ENV{CPPUTEST_HOME}/include)
 # add cpputest library
 add_library(imp_cpputest STATIC IMPORTED)
 set_property(TARGET imp_cpputest PROPERTY
-             IMPORTED_LOCATION $ENV{CPPUTEST_HOME}/src/CppUTest/libCppUTest.a)
+             IMPORTED_LOCATION $ENV{CPPUTEST_HOME}/lib/libCppUTest.a)
 
 # build test library for LedDriver
 add_library(LedDriverTest ./LedDriver/LedDriverTest.cpp)
